@@ -24,7 +24,7 @@
           </div>
 
           <div class="list">
-            <router-link to="/rental/BarcodeReader">
+            <router-link to="/rental/booklist">
               <figure><img src="../assets/images/sample3.jpg" alt="" /></figure>
               <h4>書籍一覧から探す</h4>
             </router-link>

@@ -8,7 +8,7 @@
             <h2>書籍のISBNをバーコードリーダーで読み取って下さい</h2>
 
             <div class="cp_iptxt">
-              <input class="ef" type="text" v-model="isbn_return" @change="bookreturn" placeholder="スキャンしてください" />
+              <input class="ef" type="text" v-model="isbn_return" @change="bookreturn" placeholder="" />
               <label>ISBN</label>
               <span class="focus_line"><i></i></span>
             </div>
@@ -95,31 +95,6 @@ export default {
 			axios.post(`${URL}return_register`, params)
 			.then(response => {
 				alert(response.data['message'])
-				axios.post(`${URL}book_list`)
-				.then(response => {
-					// alert(response.status)
-					// console.log(response.data)
-					this.tableData=[]
-					for(var i in response.data.title){
-						console.log(i)
-						this.getData = {
-							title:response.data.title[i],
-							author:response.data.author[i],
-							publisher:response.data.publisher[i],
-							state: String(response.data.rentaluser_name[i])
-						}
-						console.log(response.data)
-						if(this.getData.state == "null") {
-							this.getData.state = '貸出可能'
-						}
-						this.tableData.push(this.getData)
-					}	
-				})
-				.catch(error => {
-					alert('データを送信できませんでした．')
-					console.log(error)
-					// alert(error)
-				})
 				console.log(response.data)
 			})
 			.catch(error => {
@@ -204,17 +179,21 @@ export default {
   transition: 0.6s;
 }
 .ef ~ label {
+  z-index: -1;
+  opacity: 0;
   position: absolute;
   font-size: 20px;
   top: 4px;
   left: 14px;
-  width: 5%;
+  width: 50%;
   transition: 0.3s;
   letter-spacing: 0.5px;
-  color: #040404;
+  color: #b2adad;
 }
 .ef:focus ~ label,
 .cp_iptxt.ef ~ label {
+  z-index: 0;
+  opacity: 1;
   font-size: 25px;
   top: -40px;
   left: 0;

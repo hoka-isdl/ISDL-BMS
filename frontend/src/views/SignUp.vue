@@ -19,7 +19,7 @@
           <div class="cp_iptxt">
               <input
                 class="ef"
-                type="text"
+                type="password"
                 v-model="password"
                 placeholder="password"
               />
@@ -136,6 +136,17 @@ export default {
   /* padding-left: 4em; */
 }
 .cp_iptxt input[type="text"]:focus {
+  outline: none;
+}
+.cp_iptxt input[type="password"] {
+  font: 15px/24px sans-serif;
+  color: #000;
+  box-sizing: border-box;
+  width: 100%;
+  letter-spacing: 1px;
+  /* padding-left: 4em; */
+}
+.cp_iptxt input[type="password"]:focus {
   outline: none;
 }
 .ef {
