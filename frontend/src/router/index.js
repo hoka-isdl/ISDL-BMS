@@ -53,7 +53,7 @@ const routes = [
     component: ResetPassword,
   },
   {
-    path: '/booklist',
+    path: '/rental/booklist',
     name: 'booklist',
     component: BookList,
   },
